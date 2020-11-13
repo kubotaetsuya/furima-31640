@@ -37,7 +37,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase_record
+- has_one :purchase_record
 
 ## purchase_recordsテーブル
 
@@ -49,7 +49,7 @@
 
 - belongs_to :user
 - has_one :shipping_address
-- has_one :items
+- belongs_to :items
 
 
 ## shipping_addressテーブル
@@ -57,7 +57,7 @@
 | Column               | Type   | Options     |
 | -------------------- | ------ | ----------- |
 | postcode             | string | null:false  |
-| prefecture           | integer | null:false  |
+| prefecture_id        | integer | null:false  |
 | city                 | string | null:false  |
 | block                | string | null:false  |
 | building             | string |             |
