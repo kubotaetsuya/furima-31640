@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
          validates :nickname, presence: true
          validates :email, presence: true
+         validates :email, uniqueness: true
+         validates :email, inclusion: { in: %w(@),
+          message: "%{value} エラー時のメッセージ" }
          validates :encrypted_password, presence: true
          validates :last_name, presence: true
          validates :first_name, presence: true
