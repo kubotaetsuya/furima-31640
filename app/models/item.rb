@@ -11,12 +11,16 @@ class Item < ApplicationRecord
   belongs_to :days_ship
 
   validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
-  validates :image, presence: true
   with_options  numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
     validates :shipping_fee_burden_id
     validates :shipping_area_id
     validates :days_ship_id
+  end
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :description
   end
 end
