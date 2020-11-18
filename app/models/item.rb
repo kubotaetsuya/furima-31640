@@ -10,8 +10,8 @@ class Item < ApplicationRecord
   belongs_to :shipping_area
   belongs_to :days_ship
 
-  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
-  with_options  numericality: { other_than: 1 } do
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
     validates :shipping_fee_burden_id
