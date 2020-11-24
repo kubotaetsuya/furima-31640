@@ -38,6 +38,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Shipping area can't be blank")
       end
+      it 'shipping_area_idがid.1だと保存できない' do
+        @order_address.shipping_area_id = "1"
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include(["Shipping area must be other than 1")
+      end
       it 'cityが空だと保存できない' do
         @order_address.city = ""
         @order_address.valid?
