@@ -38,7 +38,7 @@
 - belongs_to :user
 - has_one :purchase_record
 
-## purchase_recordsテーブル
+## ordersテーブル
 
 | Column               | Type    | Options     |
 | -------------------- | ------- | ----------- |
@@ -47,22 +47,22 @@
 ### Association
 
 - belongs_to :user
-- has_one :shipping_address
+- has_one :address
 - belongs_to :item
 
 
-## shipping_addressテーブル
+## addressテーブル
 
 | Column               | Type   | Options     |
 | -------------------- | ------ | ----------- |
 | postcode             | string | null:false  |
-| prefecture_id        | integer | null:false  |
+| shipping_area_id        | integer | null:false  |
 | city                 | string | null:false  |
 | block                | string | null:false  |
 | building             | string |             |
 | phone_number         | string | null:false |
-| purchase_record      | references | foreign_key: true |
+| order                | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :purchase_record
+- belongs_to :order
